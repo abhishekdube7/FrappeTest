@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+ 
+
+{% block graph %}
+
+    <div class="content-section">
+        <form method = "POST" action="">
+            {{form.hidden_tag()}}
+            <br>
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add Location </legend>
+                <div class="form-group">
+                        {{form.loc_id.label(class = "form-control-label")}}
+                        {{form.loc_id(class = "form-control form-control-lg")}}
+                </div>
+                
+                <div class="form-group">
+                    {{form.loc_name.label(class = "form-control-label")}}
+                    {{form.loc_name(class = "form-control form-control-lg")}}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class = "btn btn-outline-info")}}
+
+            </div>
+
+        </form>
+    </div>
+
+{% endblock graph %}
+
+
+
+{% block about %}
+    
+    <table class="table">
+    <thead>
+        <tr>
+                <th>Location ID</th>
+                <th>Address</th>        
+        </tr>
+    
+    </thead>
+    
+    <tbody>
+        {% for record in data %}    
+        <tr>
+            <td>{{record.location_id}}</td>
+            <td>{{record.address}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    
+{% endblock about %}
